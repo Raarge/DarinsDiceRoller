@@ -9,14 +9,14 @@ using DarinsDiceRoller.Models;
 
 namespace DarinsDiceRoller.Views
 {
-    public partial class MainPage : MasterDetailPage
+    public partial class MainPage : FlyoutPage
     {
         Dictionary<int, NavigationPage> MenuPages = new Dictionary<int, NavigationPage>();
         public MainPage()
         {
             InitializeComponent();
 
-            MasterBehavior = MasterBehavior.Popover;
+            FlyoutLayoutBehavior = FlyoutLayoutBehavior.Popover;
 
             //MenuPages.Add((int)MenuItemType.Dice, (NavigationPage)Detail);
             //MenuPages.Add((int)MenuItemType.About, (NavigationPage)Detail);
