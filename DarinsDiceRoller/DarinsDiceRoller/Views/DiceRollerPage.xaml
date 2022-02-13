@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:DarinsDiceRoller.ViewModels"
+             x:Class="DarinsDiceRoller.Views.DiceRollerPage"
+             x:DataType="viewmodels:DiceRollerViewModel">
+    <ContentPage.BindingContext>
+        <viewmodels:DiceRollerViewModel/>
+    </ContentPage.BindingContext>
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--Row 0-->
+        <Label Text="Dice Roller Page" FontSize="Large" FontFamily="samantha" TextColor="GreenYellow" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        <!--Row 1 through 3-->
+        <Image Source="D20.jpg" WidthRequest="25" HeightRequest="25" Margin="5" Grid.Row="1" Grid.Column="0"></Image>
+        <Image Source="D12.jpg" WidthRequest="25" HeightRequest="25" Margin="5" Grid.Row="1" Grid.Column="1"></Image>
+        <BoxView Color="White" Grid.Row="2" Grid.Column="1" />
+        <Label Text="{Binding RollDisplay12}" TextColor="Black" FontAttributes="Bold" Grid.Row="2" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        <BoxView Color="White" Grid.Row="2" Grid.Column="0" />
+        <Label Text="{Binding RollDisplay20}" TextColor="Black" FontAttributes="Bold" Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        <BoxView Color="White" Grid.Row="3" Grid.Column="0" />
+        <BoxView Color="White" Grid.Row="3" Grid.Column="1" />
+        <Button Text="Roll D20" Grid.Row="3" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding RollDie20}" ></Button>
+        <Button Text="Roll D12" Grid.Row="3" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"  Command="{Binding RollDie12}"></Button>
+        <!--Row 4 through 6-->
+        <Image Source="D10.jpg" WidthRequest="25" HeightRequest="25" Margin="5" Grid.Row="4" Grid.Column="0"></Image>
+        <Image Source="D8.jpg" WidthRequest="25" HeightRequest="25" Margin="5" Grid.Row="4" Grid.Column="1"></Image>
+        <BoxView Color="White" Grid.Row="5" Grid.Column="0" />
+        <Label Text="{Binding RollDisplay10}" TextColor="Black" FontAttributes="Bold" Grid.Row="5" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        <BoxView Color="White" Grid.Row="5" Grid.Column="1" />
+        <Label Text="{Binding RollDisplay8}" TextColor="Black" FontAttributes="Bold" Grid.Row="5" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        <BoxView Color="White" Grid.Row="6" Grid.Column="0" />
+        <BoxView Color="White" Grid.Row="6" Grid.Column="1" />
+        <Button Text="Roll D10" Grid.Row="6" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding RollDie10}"></Button>
+        <Button Text="Roll D8" Grid.Row="6" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding RollDie8}" ></Button>
+        <!--Row 7 through 9-->
+        <Image Source="D6.jpg" WidthRequest="25" HeightRequest="25" Margin="5" Grid.Row="7" Grid.Column="0"></Image>
+        <Image Source="D4.jpg" WidthRequest="25" HeightRequest="25" Margin="5" Grid.Row="7" Grid.Column="1"></Image>
+        <BoxView Color="White" Grid.Row="8" Grid.Column="0" />
+        <Label Text="{Binding RollDisplay6}" TextColor="Black" FontAttributes="Bold" Grid.Row="8" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        <BoxView Color="White" Grid.Row="8" Grid.Column="1" />
+        <Label Text="{Binding RollDisplay4}" TextColor="Black" FontAttributes="Bold" Grid.Row="8" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        <BoxView Color="White" Grid.Row="9" Grid.Column="0" />
+        <BoxView Color="White" Grid.Row="9" Grid.Column="1" />
+        <Button Text="Roll D6" Grid.Row="9" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding RollDie6}"></Button>
+        <Button Text="Roll D4" Grid.Row="9" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding RollDie4}"></Button>
+        <!--Row 10-->
+        <Image Source="d100.jpg" WidthRequest="100" HeightRequest="100" HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="10" ></Image>
+        <BoxView Color="White" Grid.Row="11" />
+        <Label Text="{Binding RollDisplay100}" TextColor="Black" FontAttributes="Bold" Grid.Row="11" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        <BoxView Color="White" Grid.Row="12" />
+        <Button Text="Roll D100" Grid.Row="12" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Command="{Binding RollDie100}"></Button>
+        <Image Source="BlackDragon.jpg" WidthRequest="175" HeightRequest="175" HorizontalOptions="Fill" VerticalOptions="End" Grid.Row="10" Grid.Column="1" Grid.RowSpan="3"></Image>
+        
+
+    </Grid>
+
+</ContentPage>
