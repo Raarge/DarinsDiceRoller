@@ -1,6 +1,5 @@
 ﻿using DarinsDiceRoller.Interfaces;
 using DarinsDiceRoller.Services;
-using System;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -8,6 +7,8 @@ namespace DarinsDiceRoller.ViewModels
 {
     public class DiceRollerViewModel : BindableObject
     {
+        private const string DEFAULT_ROLL_TEXT = "Roll Me!";
+
         public ICommand RollDie20 => new Command(Roll20);
         public ICommand RollDie12 => new Command(Roll12);
         public ICommand RollDie10 => new Command(Roll10);
@@ -16,110 +17,92 @@ namespace DarinsDiceRoller.ViewModels
         public ICommand RollDie4 => new Command(Roll4);
         public ICommand RollDie2 => new Command(Roll2);
         public ICommand RollDie100 => new Command(Roll100);
+        public ICommand ResetAllDice => new Command(Reset);
 
-        int roll = 0;
-        string rollDisplay = "Roll Me!";
-
+        private string _rollDisplay20 = DEFAULT_ROLL_TEXT;
         public string RollDisplay20
         {
-            get => rollDisplay;
+            get => _rollDisplay20;
             set
             {
-                if (value == rollDisplay)
-                    return;
-
-                rollDisplay = value;
+                _rollDisplay20 = value;
                 OnPropertyChanged();
             }
         }
 
+        private string _rollDisplay12 = DEFAULT_ROLL_TEXT;
         public string RollDisplay12
         {
-            get => rollDisplay;
+            get => _rollDisplay12;
             set
             {
-                if (value == rollDisplay)
-                    return;
-
-                rollDisplay = value;
+                _rollDisplay12 = value;
                 OnPropertyChanged();
             }
         }
 
+        private string _rollDisplay10 = DEFAULT_ROLL_TEXT;
         public string RollDisplay10
         {
-            get => rollDisplay;
+            get => _rollDisplay10;
             set
             {
-                if (value == rollDisplay)
-                    return;
-
-                rollDisplay = value;
+                _rollDisplay10 = value;
                 OnPropertyChanged();
             }
         }
 
+        private string _rollDisplay8 = DEFAULT_ROLL_TEXT;
         public string RollDisplay8
         {
-            get => rollDisplay;
+            get => _rollDisplay8;
             set
             {
-                if (value == rollDisplay)
-                    return;
-
-                rollDisplay = value;
+                _rollDisplay8 = value;
                 OnPropertyChanged();
             }
         }
 
+        private string _rollDisplay6 = DEFAULT_ROLL_TEXT;
         public string RollDisplay6
         {
-            get => rollDisplay;
+            get => _rollDisplay6;
             set
             {
-                if (value == rollDisplay)
-                    return;
-
-                rollDisplay = value;
+                _rollDisplay6 = value;
                 OnPropertyChanged();
             }
         }
 
+        private string _rollDisplay4 = DEFAULT_ROLL_TEXT;
         public string RollDisplay4
         {
-            get => rollDisplay;
+            get => _rollDisplay4;
             set
             {
-                if (value == rollDisplay)
-                    return;
-
-                rollDisplay = value;
+                _rollDisplay4 = value;
                 OnPropertyChanged();
             }
         }
 
+        private string _rollDisplay2 = DEFAULT_ROLL_TEXT;
         public string RollDisplay2
         {
-            get => rollDisplay;
+            get => _rollDisplay2;
             set
             {
-                if (value == rollDisplay)
-                    return;
-
-                rollDisplay = value;
+                _rollDisplay2 = value;
                 OnPropertyChanged();
             }
         }
 
+        private string _rollDisplay100 = DEFAULT_ROLL_TEXT;
         public string RollDisplay100
         {
-            get => rollDisplay;
+            get => _rollDisplay100;
             set
             {
-                if (value == rollDisplay)
-                    return;
-
-                rollDisplay = value;
+                _rollDisplay100 = value;
                 OnPropertyChanged();
             }
         }
@@ -127,13 +110,13 @@ namespace DarinsDiceRoller.ViewModels
         void Roll20()
         {
             IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
-            roll = simpleDiceBuilder.AddD20().RollDice();
+            var roll = simpleDiceBuilder.AddD20().RollDice();
             if (roll == 1)
             {
-                RollDisplay20 = $"1 - Critical Fail!!";
+                RollDisplay20 = $"{roll} - Critical Fail!!";
             } else if (roll == 20)
             {
-                RollDisplay20 = $"20 - Critical Success!!";
+                RollDisplay20 = $"{roll} - Critical Success!!";
             }
             else
             {
@@ -144,49 +127,61 @@ namespace DarinsDiceRoller.ViewModels
         void Roll12()
         {
             IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
-            roll = simpleDiceBuilder.AddD12().RollDice();
+            var roll = simpleDiceBuilder.AddD12().RollDice();
             RollDisplay12 = $"{roll}";
         }
 
         void Roll10()
         {
             IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
-            roll = simpleDiceBuilder.AddD10().RollDice();
+            var roll = simpleDiceBuilder.AddD10().RollDice();
             RollDisplay10 = $"{roll}";
         }
 
         void Roll8()
         {
             IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
-            roll = simpleDiceBuilder.AddD8().RollDice();
+            var roll = simpleDiceBuilder.AddD8().RollDice();
             RollDisplay8 = $"{roll}";
         }
 
         void Roll6()
         {
             IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
-            roll = simpleDiceBuilder.AddD6().RollDice();
+            var roll = simpleDiceBuilder.AddD6().RollDice();
             RollDisplay6 = $"{roll}";
         }
 
         void Roll4()
         {
             IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
-            roll = simpleDiceBuilder.AddD4().RollDice();
+            var roll = simpleDiceBuilder.AddD4().RollDice();
             RollDisplay4 = $"{roll}";
         }
         void Roll2()
         {
             IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
-            roll = simpleDiceBuilder.AddD2().RollDice();
+            var roll = simpleDiceBuilder.AddD2().RollDice();
             RollDisplay2 = $"{roll}";
         }
 
         void Roll100()
         {
             IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
-            roll = simpleDiceBuilder.AddD100().RollDice();
+            var roll = simpleDiceBuilder.AddD100().RollDice();
             RollDisplay100 = $"{roll}";
+        }
+
+        void Reset()
+        {
+            RollDisplay100 = DEFAULT_ROLL_TEXT;
+            RollDisplay20 = DEFAULT_ROLL_TEXT;
+            RollDisplay12 = DEFAULT_ROLL_TEXT;
+            RollDisplay10 = DEFAULT_ROLL_TEXT;
+            RollDisplay8 = DEFAULT_ROLL_TEXT;
+            RollDisplay6 = DEFAULT_ROLL_TEXT;
+            RollDisplay4 = DEFAULT_ROLL_TEXT;
+            RollDisplay2 = DEFAULT_ROLL_TEXT;
         }
     }
 }

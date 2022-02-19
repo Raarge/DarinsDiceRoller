@@ -18,6 +18,7 @@
                 <RowDefinition Height="70" />
                 <RowDefinition Height="70" />
                 <RowDefinition Height="70" />
+                <RowDefinition Height="70" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -214,6 +215,20 @@
             <!--  Row 9  -->
             <StackLayout
                 Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2"
+                Margin="0" BackgroundColor="White">
+                <Button
+                    Command="{Binding ResetAllDice}"
+                    ContentLayout="Left,5" HorizontalOptions="FillAndExpand" Text="Reset"
+                    VerticalOptions="FillAndExpand">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="MDI" Glyph="{x:Static helpers:MaterialDesignIcons.RefreshCircle}" />
+                    </Button.ImageSource>
+                </Button>
+            </StackLayout>
+
+            <!--  Row 10  -->
+            <StackLayout
+                Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2"
                 BackgroundColor="White">
                 <Image
                     Aspect="AspectFit" HorizontalOptions="FillAndExpand" Source="BlackDragon.jpg"
