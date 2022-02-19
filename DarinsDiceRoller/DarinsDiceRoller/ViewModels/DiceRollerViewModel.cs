@@ -1,8 +1,6 @@
-﻿using Android.Content.Res;
-using DarinsDiceRoller.Views;
+﻿using DarinsDiceRoller.Interfaces;
+using DarinsDiceRoller.Services;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -19,7 +17,6 @@ namespace DarinsDiceRoller.ViewModels
             RollDie6 = new Command(Roll6);
             RollDie4 = new Command(Roll4);
             RollDie100 = new Command(Roll100);
-            
         }
 
         public ICommand RollDie20 { get; }
@@ -29,12 +26,9 @@ namespace DarinsDiceRoller.ViewModels
         public ICommand RollDie6 { get; }
         public ICommand RollDie4 { get; }
         public ICommand RollDie100 { get; }
-        
 
         int roll = 0;
         string rollDisplay = "Roll Me!";
-        
-
 
         public string RollDisplay20
         {
@@ -47,7 +41,6 @@ namespace DarinsDiceRoller.ViewModels
                 rollDisplay = value;
                 OnPropertyChanged();
             }
-                        
         }
 
         public string RollDisplay12
@@ -88,7 +81,7 @@ namespace DarinsDiceRoller.ViewModels
                 OnPropertyChanged();
             }
         }
-        
+
         public string RollDisplay6
         {
             get => rollDisplay;
@@ -101,7 +94,7 @@ namespace DarinsDiceRoller.ViewModels
                 OnPropertyChanged();
             }
         }
-        
+
         public string RollDisplay4
         {
             get => rollDisplay;
@@ -114,7 +107,7 @@ namespace DarinsDiceRoller.ViewModels
                 OnPropertyChanged();
             }
         }
-        
+
         public string RollDisplay100
         {
             get => rollDisplay;
@@ -130,10 +123,9 @@ namespace DarinsDiceRoller.ViewModels
 
         void Roll20()
         {
-            Random rnd = new Random();
-            
-            roll = rnd.Next(1, 21);
-            if(roll == 1)
+            IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
+            roll = simpleDiceBuilder.AddD20().RollDice();
+            if (roll == 1)
             {
                 RollDisplay20 = $"1 - Critical Fail!!";
             } else if (roll == 20)
@@ -144,64 +136,48 @@ namespace DarinsDiceRoller.ViewModels
             {
                 RollDisplay20 = $"{roll}";
             }
-
-            
-            
         }
 
         void Roll12()
         {
-            Random rnd = new Random();
-
-            roll = rnd.Next(1, 13);
+            IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
+            roll = simpleDiceBuilder.AddD12().RollDice();
             RollDisplay12 = $"{roll}";
-            
         }
 
         void Roll10()
         {
-            Random rnd = new Random();
-
-            roll = rnd.Next(1, 11);
+            IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
+            roll = simpleDiceBuilder.AddD10().RollDice();
             RollDisplay10 = $"{roll}";
-            
         }
 
         void Roll8()
         {
-            Random rnd = new Random();
-
-            roll = rnd.Next(1, 9);
+            IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
+            roll = simpleDiceBuilder.AddD8().RollDice();
             RollDisplay8 = $"{roll}";
-            
         }
 
         void Roll6()
         {
-            Random rnd = new Random();
-
-            roll = rnd.Next(1, 7);
+            IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
+            roll = simpleDiceBuilder.AddD6().RollDice();
             RollDisplay6 = $"{roll}";
-            
         }
 
         void Roll4()
         {
-            Random rnd = new Random();
-
-            roll = rnd.Next(1, 5);
+            IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
+            roll = simpleDiceBuilder.AddD4().RollDice();
             RollDisplay4 = $"{roll}";
-            
         }
 
         void Roll100()
         {
-            Random rnd = new Random();
-
-            roll = rnd.Next(1, 101);
+            IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
+            roll = simpleDiceBuilder.AddD100().RollDice();
             RollDisplay100 = $"{roll}";
-            
-        }        
+        }
     }
 }
-
