@@ -8,24 +8,14 @@ namespace DarinsDiceRoller.ViewModels
 {
     public class DiceRollerViewModel : BindableObject
     {
-        public DiceRollerViewModel()
-        {
-            RollDie20 = new Command(Roll20);
-            RollDie12 = new Command(Roll12);
-            RollDie10 = new Command(Roll10);
-            RollDie8 = new Command(Roll8);
-            RollDie6 = new Command(Roll6);
-            RollDie4 = new Command(Roll4);
-            RollDie100 = new Command(Roll100);
-        }
-
-        public ICommand RollDie20 { get; }
-        public ICommand RollDie12 { get; }
-        public ICommand RollDie10 { get; }
-        public ICommand RollDie8 { get; }
-        public ICommand RollDie6 { get; }
-        public ICommand RollDie4 { get; }
-        public ICommand RollDie100 { get; }
+        public ICommand RollDie20 => new Command(Roll20);
+        public ICommand RollDie12 => new Command(Roll12);
+        public ICommand RollDie10 => new Command(Roll10);
+        public ICommand RollDie8 => new Command(Roll8);
+        public ICommand RollDie6 => new Command(Roll6);
+        public ICommand RollDie4 => new Command(Roll4);
+        public ICommand RollDie2 => new Command(Roll2);
+        public ICommand RollDie100 => new Command(Roll100);
 
         int roll = 0;
         string rollDisplay = "Roll Me!";
@@ -108,6 +98,19 @@ namespace DarinsDiceRoller.ViewModels
             }
         }
 
+        public string RollDisplay2
+        {
+            get => rollDisplay;
+            set
+            {
+                if (value == rollDisplay)
+                    return;
+
+                rollDisplay = value;
+                OnPropertyChanged();
+            }
+        }
+
         public string RollDisplay100
         {
             get => rollDisplay;
@@ -171,6 +174,12 @@ namespace DarinsDiceRoller.ViewModels
             IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
             roll = simpleDiceBuilder.AddD4().RollDice();
             RollDisplay4 = $"{roll}";
+        }
+        void Roll2()
+        {
+            IDiceBuilder<SimpleDiceBuilder> simpleDiceBuilder = new SimpleDiceBuilder();
+            roll = simpleDiceBuilder.AddD2().RollDice();
+            RollDisplay2 = $"{roll}";
         }
 
         void Roll100()

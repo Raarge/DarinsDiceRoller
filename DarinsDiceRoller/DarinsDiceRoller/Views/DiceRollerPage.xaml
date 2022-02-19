@@ -1,144 +1,225 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="DarinsDiceRoller.Views.DiceRollerPage" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:viewmodels="clr-namespace:DarinsDiceRoller.ViewModels" x:DataType="viewmodels:DiceRollerViewModel">
+    xmlns:helpers="clr-namespace:DarinsDiceRoller.Helpers" xmlns:viewmodels="clr-namespace:DarinsDiceRoller.ViewModels" x:DataType="viewmodels:DiceRollerViewModel">
     <ContentPage.BindingContext>
         <viewmodels:DiceRollerViewModel />
     </ContentPage.BindingContext>
 
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="70" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <!--  Row 0  -->
+            <Label
+                Grid.Row="0" Grid.ColumnSpan="2" FontFamily="samantha"
+                FontSize="Large" HorizontalOptions="Center" Text="Dice Roller Page"
+                TextColor="GreenYellow" VerticalOptions="Center" />
+            <!--  Row 1  -->
+            <StackLayout
+                Grid.Row="1" Grid.Column="0" Margin="0,10,0,0"
+                BackgroundColor="White">
+                <Label
+                    Grid.Row="2" Grid.Column="0" FontAttributes="Bold"
+                    HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"
+                    Text="{Binding RollDisplay20}"
+                    TextColor="Black" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" />
+            </StackLayout>
+            <StackLayout
+                Grid.Row="1" Grid.Column="1" Margin="0,10,0,0"
+                BackgroundColor="White">
+                <Label
+                    FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"
+                    Text="{Binding RollDisplay12}"
+                    TextColor="Black" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" />
+            </StackLayout>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <!--  Row 0  -->
-        <Label
-            Grid.ColumnSpan="2" FontFamily="samantha" FontSize="Large"
-            HorizontalOptions="Center" Text="Dice Roller Page" TextColor="GreenYellow"
-            VerticalOptions="Center" />
-        <!--  Row 1 through 3  -->
-        <Image
-            Grid.Row="1" Grid.Column="0" Margin="5"
-            HeightRequest="25" Source="D20.png" WidthRequest="25" />
-        <Image
-            Grid.Row="1" Grid.Column="1" Margin="5"
-            HeightRequest="25" Source="D12.jpg" WidthRequest="25" />
-        <BoxView Grid.Row="2" Grid.Column="1" Color="White" />
-        <Label
-            Grid.Row="2" Grid.Column="1" FontAttributes="Bold"
-            HorizontalOptions="Center"
-            Text="{Binding RollDisplay12}"
-            TextColor="Black" VerticalOptions="Center" />
-        <BoxView Grid.Row="2" Grid.Column="0" Color="White" />
-        <Label
-            Grid.Row="2" Grid.Column="0" FontAttributes="Bold"
-            HorizontalOptions="Center"
-            Text="{Binding RollDisplay20}"
-            TextColor="Black" VerticalOptions="Center" />
-        <BoxView Grid.Row="3" Grid.Column="0" Color="White" />
-        <BoxView Grid.Row="3" Grid.Column="1" Color="White" />
-        <Button
-            Grid.Row="3" Grid.Column="0"
-            Command="{Binding RollDie20}" HorizontalOptions="Center"
-            Text="Roll D20" VerticalOptions="Center" />
-        <Button
-            Grid.Row="3" Grid.Column="1"
-            Command="{Binding RollDie12}"
-            HorizontalOptions="Center" Text="Roll D12" VerticalOptions="Center" />
-        <!--  Row 4 through 6  -->
-        <Image
-            Grid.Row="4" Grid.Column="0" Margin="5"
-            HeightRequest="25" Source="D10.jpg" WidthRequest="25" />
-        <Image
-            Grid.Row="4" Grid.Column="1" Margin="5"
-            HeightRequest="25" Source="D8.jpg" WidthRequest="25" />
-        <BoxView Grid.Row="5" Grid.Column="0" Color="White" />
-        <Label
-            Grid.Row="5" Grid.Column="0" FontAttributes="Bold"
-            HorizontalOptions="Center"
-            Text="{Binding RollDisplay10}"
-            TextColor="Black" VerticalOptions="Center" />
-        <BoxView Grid.Row="5" Grid.Column="1" Color="White" />
-        <Label
-            Grid.Row="5" Grid.Column="1" FontAttributes="Bold"
-            HorizontalOptions="Center"
-            Text="{Binding RollDisplay8}"
-            TextColor="Black" VerticalOptions="Center" />
-        <BoxView Grid.Row="6" Grid.Column="0" Color="White" />
-        <BoxView Grid.Row="6" Grid.Column="1" Color="White" />
-        <Button
-            Grid.Row="6" Grid.Column="0"
-            Command="{Binding RollDie10}"
-            HorizontalOptions="Center" Text="Roll D10" VerticalOptions="Center" />
-        <Button
-            Grid.Row="6" Grid.Column="1"
-            Command="{Binding RollDie8}"
-            HorizontalOptions="Center" Text="Roll D8" VerticalOptions="Center" />
-        <!--  Row 7 through 9  -->
-        <Image
-            Grid.Row="7" Grid.Column="0" Margin="5"
-            HeightRequest="25" Source="D6.jpg" WidthRequest="25" />
-        <Image
-            Grid.Row="7" Grid.Column="1" Margin="5"
-            HeightRequest="25" Source="D4.jpg" WidthRequest="25" />
-        <BoxView Grid.Row="8" Grid.Column="0" Color="White" />
-        <Label
-            Grid.Row="8" Grid.Column="0" FontAttributes="Bold"
-            HorizontalOptions="Center"
-            Text="{Binding RollDisplay6}"
-            TextColor="Black" VerticalOptions="Center" />
-        <BoxView Grid.Row="8" Grid.Column="1" Color="White" />
-        <Label
-            Grid.Row="8" Grid.Column="1" FontAttributes="Bold"
-            HorizontalOptions="Center"
-            Text="{Binding RollDisplay4}"
-            TextColor="Black" VerticalOptions="Center" />
-        <BoxView Grid.Row="9" Grid.Column="0" Color="White" />
-        <BoxView Grid.Row="9" Grid.Column="1" Color="White" />
-        <Button
-            Grid.Row="9" Grid.Column="0"
-            Command="{Binding RollDie6}"
-            HorizontalOptions="Center" Text="Roll D6" VerticalOptions="Center" />
-        <Button
-            Grid.Row="9" Grid.Column="1"
-            Command="{Binding RollDie4}"
-            HorizontalOptions="Center" Text="Roll D4" VerticalOptions="Center" />
-        <!--  Row 10  -->
-        <Image
-            Grid.Row="10" HeightRequest="100" HorizontalOptions="Center"
-            Source="d100.jpg" VerticalOptions="Center" WidthRequest="100" />
-        <BoxView Grid.Row="11" Color="White" />
-        <Label
-            Grid.Row="11" FontAttributes="Bold" HorizontalOptions="Center"
-            Text="{Binding RollDisplay100}"
-            TextColor="Black" VerticalOptions="Center" />
-        <BoxView Grid.Row="12" Color="White" />
-        <Button
-            Grid.Row="12" Grid.Column="0"
-            Command="{Binding RollDie100}"
-            HorizontalOptions="Center" Text="Roll D100" VerticalOptions="Center" />
-        <Image
-            Grid.Row="10" Grid.RowSpan="3" Grid.Column="1"
-            HeightRequest="175" HorizontalOptions="Fill" Source="BlackDragon.jpg"
-            VerticalOptions="End" WidthRequest="175" />
+            <!--  Row 2  -->
+            <StackLayout
+                Grid.Row="2" Grid.Column="0" Margin="0,0,0,10"
+                BackgroundColor="White">
+                <Button
+                    Command="{Binding RollDie20}"
+                    ContentLayout="Left,5" HorizontalOptions="Center" Text="Roll D20"
+                    VerticalOptions="Center">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="MDI" Glyph="{x:Static helpers:MaterialDesignIcons.DiceD20}" />
+                    </Button.ImageSource>
+                </Button>
+            </StackLayout>
+            <StackLayout
+                Grid.Row="2" Grid.Column="1" Margin="0,0,0,10"
+                BackgroundColor="White">
+                <Button
+                    Command="{Binding RollDie12}"
+                    HorizontalOptions="Center" Text="Roll D12" VerticalOptions="Center">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="MDI" Glyph="{x:Static helpers:MaterialDesignIcons.DiceD12}" />
+                    </Button.ImageSource>
+                </Button>
+            </StackLayout>
 
+            <!--  Row 3  -->
 
-    </Grid>
+            <StackLayout
+                Grid.Row="3" Grid.Column="0" Margin="0,10,0,0"
+                BackgroundColor="White">
+                <Label
+                    FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"
+                    Text="{Binding RollDisplay10}"
+                    TextColor="Black" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" />
+            </StackLayout>
 
+            <StackLayout
+                Grid.Row="3" Grid.Column="1" Margin="0,10,0,0"
+                BackgroundColor="White">
+                <Label
+                    FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"
+                    Text="{Binding RollDisplay8}"
+                    TextColor="Black" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" />
+            </StackLayout>
+
+            <!--  Row 4  -->
+
+            <StackLayout
+                Grid.Row="4" Grid.Column="0" Margin="0,0,0,10"
+                BackgroundColor="White">
+                <Button
+                    Command="{Binding RollDie10}"
+                    ContentLayout="Left,5" HorizontalOptions="Center" Text="Roll D10"
+                    VerticalOptions="Center">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="MDI" Glyph="{x:Static helpers:MaterialDesignIcons.DiceD10}" />
+                    </Button.ImageSource>
+                </Button>
+            </StackLayout>
+            <StackLayout
+                Grid.Row="4" Grid.Column="1" Margin="0,0,0,10"
+                BackgroundColor="White">
+                <Button
+                    Command="{Binding RollDie8}"
+                    HorizontalOptions="Center" Text="Roll D8" VerticalOptions="Center">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="MDI" Glyph="{x:Static helpers:MaterialDesignIcons.DiceD8}" />
+                    </Button.ImageSource>
+                </Button>
+            </StackLayout>
+
+            <!--  Row 5  -->
+
+            <StackLayout
+                Grid.Row="5" Grid.Column="0" Margin="0,10,0,0"
+                BackgroundColor="White">
+                <Label
+                    FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"
+                    Text="{Binding RollDisplay6}"
+                    TextColor="Black" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" />
+            </StackLayout>
+
+            <StackLayout
+                Grid.Row="5" Grid.Column="1" Margin="0,10,0,0"
+                BackgroundColor="White">
+                <Label
+                    FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"
+                    Text="{Binding RollDisplay4}"
+                    TextColor="Black" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" />
+            </StackLayout>
+
+            <!--  Row 6  -->
+
+            <StackLayout
+                Grid.Row="6" Grid.Column="0" Margin="0,0,0,10"
+                BackgroundColor="White">
+                <Button
+                    Command="{Binding RollDie6}"
+                    ContentLayout="Left,5" HorizontalOptions="Center" Text="Roll D6"
+                    VerticalOptions="Center">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="MDI" Glyph="{x:Static helpers:MaterialDesignIcons.DiceD6}" />
+                    </Button.ImageSource>
+                </Button>
+            </StackLayout>
+            <StackLayout
+                Grid.Row="6" Grid.Column="1" Margin="0,0,0,10"
+                BackgroundColor="White">
+                <Button
+                    Command="{Binding RollDie4}"
+                    HorizontalOptions="Center" Text="Roll D4" VerticalOptions="Center">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="MDI" Glyph="{x:Static helpers:MaterialDesignIcons.DiceD4}" />
+                    </Button.ImageSource>
+                </Button>
+            </StackLayout>
+
+            <!--  Row 7  -->
+
+            <StackLayout
+                Grid.Row="7" Grid.Column="0" Margin="0,10,0,0"
+                BackgroundColor="White">
+                <Label
+                    FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"
+                    Text="{Binding RollDisplay100}"
+                    TextColor="Black" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" />
+            </StackLayout>
+            <StackLayout
+                Grid.Row="7" Grid.Column="1" Margin="0,10,0,0"
+                BackgroundColor="White">
+                <Label
+                    FontAttributes="Bold" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center"
+                    Text="{Binding RollDisplay2}"
+                    TextColor="Black" VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" />
+            </StackLayout>
+
+            <!--  Row 8  -->
+
+            <StackLayout
+                Grid.Row="8" Grid.Column="0" Margin="0,0,0,10"
+                BackgroundColor="White">
+                <Button
+                    Command="{Binding RollDie100}"
+                    ContentLayout="Left,5" HorizontalOptions="Center" Text="Roll D100"
+                    VerticalOptions="Center">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="MDI" Glyph="{x:Static helpers:MaterialDesignIcons.Cash100}" />
+                    </Button.ImageSource>
+                </Button>
+            </StackLayout>
+            <StackLayout
+                Grid.Row="8" Grid.Column="1" Margin="0,0,0,10"
+                BackgroundColor="White">
+                <Button
+                    Command="{Binding RollDie2}"
+                    ContentLayout="Left,5" HorizontalOptions="Center" Text="Roll D2"
+                    VerticalOptions="Center">
+                    <Button.ImageSource>
+                        <FontImageSource FontFamily="MDI" Glyph="{x:Static helpers:MaterialDesignIcons.HandCoin}" />
+                    </Button.ImageSource>
+                </Button>
+            </StackLayout>
+
+            <!--  Row 9  -->
+            <StackLayout
+                Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2"
+                BackgroundColor="White">
+                <Image
+                    Aspect="AspectFit" HorizontalOptions="FillAndExpand" Source="BlackDragon.jpg"
+                    VerticalOptions="FillAndExpand" />
+            </StackLayout>
+
+        </Grid>
+    </ScrollView>
 </ContentPage>
