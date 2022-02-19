@@ -5,7 +5,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:helpers="clr-namespace:DarinsDiceRoller.Helpers"
     xmlns:viewmodels="clr-namespace:DarinsDiceRoller.ViewModels"
-    x:DataType="viewmodels:DiceRollerViewModel">
+    x:DataType="viewmodels:DiceRollerViewModel"
+    Title="Dice Page">
     <ContentPage.BindingContext>
         <viewmodels:DiceRollerViewModel />
     </ContentPage.BindingContext>

@@ -2,7 +2,8 @@
 <ContentPage
     x:Class="DarinsDiceRoller.Views.LandingPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Main Page">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -27,7 +28,7 @@
             Grid.Column="0"
             Grid.ColumnSpan="2"
             FontAttributes="Bold"
-            FontSize="Large"
+            FontSize="Title"
             HorizontalTextAlignment="Center"
             Text="Darin's Dice Roller"
             TextColor="Red"
