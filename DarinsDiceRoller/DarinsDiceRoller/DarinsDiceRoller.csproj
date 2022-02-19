@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="D:\Pictures\ProjectPictures\DiceRollerIcon.jpg">
+    <None Include="..\DarinsDiceRoller.Android\Resources\drawable\DiceRollerIcon.jpg">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
@@ -40,7 +40,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\CreditPage.xaml.cs">
+      <DependentUpon>CreditPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="Views\AboutPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\CreditPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\DiceRollerPage.xaml">

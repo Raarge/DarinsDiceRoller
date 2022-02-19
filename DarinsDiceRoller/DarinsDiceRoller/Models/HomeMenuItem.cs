@@ -8,6 +8,7 @@ namespace DarinsDiceRoller.Models
     {
         Main,
         Dice,
+        Credits,
         About
     }
     public class HomeMenuItem

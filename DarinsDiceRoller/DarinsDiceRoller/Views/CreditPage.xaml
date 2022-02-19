@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DarinsDiceRoller.Views.CreditPage"
+             Title="Credits">
+    <ContentPage.Content>
+        <StackLayout Margin="10, 10, 10, 10" BackgroundColor="Black">
+            <Frame HasShadow="True" BackgroundColor="Black">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <Label TextColor="White" Text="Creator"/>
+                    <Label TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" Text="eL33t G33kr3 Applications"/>
+                    <BoxView Color="white"  VerticalOptions="FillAndExpand" HeightRequest="1"/>
+                </StackLayout>
+            </Frame>
+            
+            <Frame BackgroundColor="Black">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <Label TextColor="white" Text="Programmer"/>
+                    <Label TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" Text="W. Darin Campbell"/>
+                    <BoxView Color="white"  VerticalOptions="FillAndExpand" HeightRequest="1"/>
+                </StackLayout>
+            </Frame>
+            
+            <Frame BackgroundColor="Black">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+                    <Label TextColor="white" Text="Special Thanks"/>
+                    <Label TextColor="White" FontAttributes="Bold" HorizontalTextAlignment="Center" Text="Joshua Garrison"/>
+                    <BoxView Color="white"  VerticalOptions="FillAndExpand" HeightRequest="1"/>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="Black">
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                    <Image Source="DnDDiceFigure.png" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                </StackLayout>
+            </Frame>
+            
+        </StackLayout>
+    </ContentPage.Content>
+   
+</ContentPage>

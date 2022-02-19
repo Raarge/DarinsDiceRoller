@@ -24,7 +24,7 @@ namespace DarinsDiceRoller.Views
 
         public async Task NavigateFromMenu(int id)
         {
-            if(!MenuPages.ContainsKey(id))
+            if (!MenuPages.ContainsKey(id))
             {
                 switch (id)
                 {
@@ -33,7 +33,10 @@ namespace DarinsDiceRoller.Views
                         break;
                     case (int)MenuItemType.Main:
                         MenuPages.Add(id, new NavigationPage(new LandingPage()));
-                        break;                    
+                        break;
+                    case (int)MenuItemType.Credits:
+                        MenuPages.Add(id, new NavigationPage(new CreditPage()));
+                        break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;

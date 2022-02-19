@@ -23,7 +23,7 @@
         <Label
             FontSize="Title" HorizontalTextAlignment="Center" Text="About Page"
             TextColor="Black" VerticalTextAlignment="Center" />
-        <Label Grid.Row="1" HorizontalOptions="Center" Text="Darin's Dice Roller is based on the D20 dice system.  It is produced (as is) by eL33t g33kr3 application development." />
+        <Label Grid.Row="1" HorizontalOptions="Center" Margin="10, 5, 10, 5" Text="Darin's Dice Roller is based on the D20 dice system.  It is produced (as is) by eL33t g33kr3 application development." />
         <Image
             Grid.Row="2" Grid.RowSpan="6" HorizontalOptions="FillAndExpand"
             Source="glowingDragonEye.jpg" VerticalOptions="FillAndExpand" />
