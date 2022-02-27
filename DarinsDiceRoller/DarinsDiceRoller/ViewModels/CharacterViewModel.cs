@@ -9,13 +9,14 @@ using DarinsDiceRoller.Services;
 
 namespace DarinsDiceRoller.ViewModels
 {
-    public class CharacterViewModel
+    public class CharacterViewModel : BaseViewModel
     {
         public ObservableRangeCollection<D20Character> Character { get; set; }
         public AsyncCommand RefreshCommand { get; }
         public AsyncCommand AddCommand { get; }
         public AsyncCommand<D20Character> RemoveCommand { get; }
-        public bool IsBusy = false;
+        public AsyncCommand<D20Character> SelectedCommand { get; }
+        public bool IsBusy { get; private set; }
 
         public CharacterViewModel()
         {
@@ -24,6 +25,7 @@ namespace DarinsDiceRoller.ViewModels
             RefreshCommand = new AsyncCommand(Refresh);
             AddCommand = new AsyncCommand(Add);
             RemoveCommand = new AsyncCommand<D20Character>(Remove);
+            
         }
 
         async Task Add()
@@ -40,13 +42,14 @@ namespace DarinsDiceRoller.ViewModels
             await Refresh();
         }
 
+        
         async Task Remove(D20Character character)
         {
             await DiceRollerService.RemoveCharacter(character.CharacterId);
             await Refresh();
         }
 
-        async Task Refresh()
+        public async Task Refresh()
         {
             IsBusy = true;
 

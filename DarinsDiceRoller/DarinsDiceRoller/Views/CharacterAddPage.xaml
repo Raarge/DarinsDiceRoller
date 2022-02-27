@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DarinsDiceRoller.Views.CharacterAddPage"
+             xmlns:mvvm="clr-namespace:MvvmHelpers;assembly=MvvmHelpers"
+             xmlns:model="clr-namespace:DarinsDiceRoller.Models"
+             xmlns:viewmodels="clr-namespace:DarinsDiceRoller.ViewModels"
+             xmlns:xct="http://xamrin.com/schemas/2020/toolkit"
+             x:Name="characteraddpage"
+             x:DataType="viewmodels:CharacterViewModel"
+             BackgroundColor="White">
+    <ContentPage.BindingContext>
+        <viewmodels:CharacterViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <!--<ResourceDictionary>
+            <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />
+        </ResourceDictionary>-->
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddCommand}"/>
+    </ContentPage.ToolbarItems>
+
+    <ListView
+        BackgroundColor="Transparent"
+        CachingStrategy="RecycleElement"
+        HasUnevenRows="True"
+        IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+        ItemsSource="{Binding Character}"
+        RefreshCommand="{Binding RefreshCommand}"
+        RefreshControlColor="Red"
+        SelectionMode="None"
+        SeparatorVisibility="None">
+        <ListView.Behaviors>
+            <!--<xct:EventToCommandBehavior
+                EventName="ItemSelected"
+                Command="{Binding SelectedCommand}"
+                EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"/>-->
+        </ListView.Behaviors>
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="model:D20Character">
+                <ViewCell>
+                    <ViewCell.ContextActions>
+                        <MenuItem
+                            Command="{Binding Source={x:Reference CharacterAddPage}, Path=BindingContext.RemoveCommand}"
+                            CommandParameter="{Binding .}"
+                            IsDestructive="True"
+                            Text="Delete" />
+                    </ViewCell.ContextActions>
+                    <Grid Padding="10">
+                          <Frame CornerRadius="20" HasShadow="True">
+                        <StackLayout Orientation="Horizontal">
+                            <StackLayout VerticalOptions="Center">
+                                <Label
+                                    FontSize="Large"
+                                    Text="{Binding Name}"
+                                    VerticalOptions="Center"/>
+                                <Label
+                                    FontSize="Small"
+                                    Text="{Binding CharacterId}"
+                                    VerticalOptions="Center"/>
+                            </StackLayout>
+                        </StackLayout>
+                        </Frame>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    
+</ContentPage>
