@@ -8,31 +8,36 @@
              xmlns:xct="http://xamrin.com/schemas/2020/toolkit"
              x:Name="characteraddpage"
              x:DataType="viewmodels:CharacterViewModel"
-             BackgroundColor="White">
+             BackgroundColor="black"
+             Title="Character"
+             >
     <ContentPage.BindingContext>
         <viewmodels:CharacterViewModel/>
     </ContentPage.BindingContext>
 
     <ContentPage.Resources>
-        <!--<ResourceDictionary>
-            <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />
-        </ResourceDictionary>-->
+        <ResourceDictionary>
+            <!--<xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />-->
+        </ResourceDictionary>
     </ContentPage.Resources>
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding AddCommand}"/>
+        <ToolbarItem Text="Reset" Command="{Binding RefreshCommand}"/>
     </ContentPage.ToolbarItems>
 
+
     <ListView
-        BackgroundColor="Transparent"
-        CachingStrategy="RecycleElement"
-        HasUnevenRows="True"
-        IsRefreshing="{Binding IsBusy, Mode=OneWay}"
-        ItemsSource="{Binding Character}"
-        RefreshCommand="{Binding RefreshCommand}"
-        RefreshControlColor="Red"
-        SelectionMode="None"
-        SeparatorVisibility="None">
+                BackgroundColor="Transparent"
+                CachingStrategy="RecycleElement"
+                HasUnevenRows="True"
+                IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+                ItemsSource="{Binding Character}"
+                RefreshCommand="{Binding RefreshCommand}"
+                RefreshControlColor="Red"
+                SelectionMode="None"
+                SeparatorVisibility="None">
+
         <ListView.Behaviors>
             <!--<xct:EventToCommandBehavior
                 EventName="ItemSelected"
@@ -42,32 +47,35 @@
         <ListView.ItemTemplate>
             <DataTemplate x:DataType="model:D20Character">
                 <ViewCell>
-                    <ViewCell.ContextActions>
+                    <!--<ViewCell.ContextActions>
                         <MenuItem
                             Command="{Binding Source={x:Reference CharacterAddPage}, Path=BindingContext.RemoveCommand}"
                             CommandParameter="{Binding .}"
                             IsDestructive="True"
                             Text="Delete" />
-                    </ViewCell.ContextActions>
+                    </ViewCell.ContextActions>-->
                     <Grid Padding="10">
-                          <Frame CornerRadius="20" HasShadow="True">
-                        <StackLayout Orientation="Horizontal">
-                            <StackLayout VerticalOptions="Center">
-                                <Label
+                        <Frame CornerRadius="20" HasShadow="True">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout VerticalOptions="Center">
+                                    <Label
                                     FontSize="Large"
                                     Text="{Binding Name}"
-                                    VerticalOptions="Center"/>
-                                <Label
+                                    VerticalOptions="Center"
+                                    TextColor="black"/>
+                                    <Label
                                     FontSize="Small"
                                     Text="{Binding CharacterId}"
-                                    VerticalOptions="Center"/>
+                                    VerticalOptions="Center"
+                                    TextColor="black"/>
+                                </StackLayout>
                             </StackLayout>
-                        </StackLayout>
                         </Frame>
                     </Grid>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-    
+
+
 </ContentPage>

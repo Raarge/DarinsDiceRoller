@@ -6,7 +6,8 @@
     xmlns:helpers="clr-namespace:DarinsDiceRoller.Helpers"
     xmlns:viewmodels="clr-namespace:DarinsDiceRoller.ViewModels"
     x:DataType="viewmodels:DiceRollerViewModel"
-    Title="Dice Page">
+    Title="Dice Page"
+    BackgroundColor="black">
     <ContentPage.BindingContext>
         <viewmodels:DiceRollerViewModel />
     </ContentPage.BindingContext>

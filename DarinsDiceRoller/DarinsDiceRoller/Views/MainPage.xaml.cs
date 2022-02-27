@@ -34,12 +34,18 @@ namespace DarinsDiceRoller.Views
                     case (int)MenuItemType.Main:
                         MenuPages.Add(id, new NavigationPage(new LandingPage()));
                         break;
+                    case (int)MenuItemType.CharacterAdd:
+                        MenuPages.Add(id, new NavigationPage(new CharacterAddPage()));
+                        break;
                     case (int)MenuItemType.Credits:
                         MenuPages.Add(id, new NavigationPage(new CreditPage()));
                         break;
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
+                        default:
+                        break;
+                    
                 }
             }
 

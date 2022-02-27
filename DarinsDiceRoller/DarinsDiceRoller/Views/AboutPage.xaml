@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage x:Class="DarinsDiceRoller.Views.AboutPage" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Title="About Page">
+<ContentPage
+    x:Class="DarinsDiceRoller.Views.AboutPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="About Page"
+    BackgroundColor="Black">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -20,12 +24,23 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" HorizontalOptions="Center" Margin="10, 5, 10, 5" Text="Darin's Dice Roller is based on the D20 dice system.  It is produced (as is) by eL33t g33kr3 application development." />
+        <Label
+            Grid.Row="0"
+            Margin="10,5,10,5"
+            HorizontalOptions="Center"
+            Text="Darin's Dice Roller is based on the D20 dice system.  It is produced (as is) by eL33t g33kr3 application development."
+            TextColor="white"/>
         <Image
-            Grid.Row="1" Grid.RowSpan="6" HorizontalOptions="FillAndExpand"
-            Source="glowingDragonEye.jpg" VerticalOptions="FillAndExpand" />
+            Grid.Row="1"
+            Grid.RowSpan="6"
+            HorizontalOptions="FillAndExpand"
+            Source="glowingDragonEye.jpg"
+            VerticalOptions="FillAndExpand" />
         <Image
-            Grid.Row="7" Grid.RowSpan="6" HorizontalOptions="FillAndExpand"
-            Source="twoDragons.jpg" VerticalOptions="FillAndExpand" />
+            Grid.Row="7"
+            Grid.RowSpan="6"
+            HorizontalOptions="FillAndExpand"
+            Source="twoDragons.jpg"
+            VerticalOptions="FillAndExpand" />
     </Grid>
 </ContentPage>

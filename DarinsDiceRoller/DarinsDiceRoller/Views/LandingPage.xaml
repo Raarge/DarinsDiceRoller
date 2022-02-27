@@ -3,7 +3,8 @@
     x:Class="DarinsDiceRoller.Views.LandingPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Main Page">
+    Title="Main Page"
+    BackgroundColor="black">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />

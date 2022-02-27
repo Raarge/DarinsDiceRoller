@@ -6,6 +6,7 @@ using DarinsDiceRoller.Models;
 using MvvmHelpers;
 using MvvmHelpers.Commands;
 using DarinsDiceRoller.Services;
+using System.Windows.Input;
 
 namespace DarinsDiceRoller.ViewModels
 {
@@ -16,7 +17,9 @@ namespace DarinsDiceRoller.ViewModels
         public AsyncCommand AddCommand { get; }
         public AsyncCommand<D20Character> RemoveCommand { get; }
         public AsyncCommand<D20Character> SelectedCommand { get; }
+        public ICommand ResetAllDice => new Command(Reset);
         public bool IsBusy { get; private set; }
+        
 
         public CharacterViewModel()
         {
@@ -24,10 +27,11 @@ namespace DarinsDiceRoller.ViewModels
 
             RefreshCommand = new AsyncCommand(Refresh);
             AddCommand = new AsyncCommand(Add);
-            RemoveCommand = new AsyncCommand<D20Character>(Remove);
+            RemoveCommand = new AsyncCommand<D20Character>(Remove);           
+            
             
         }
-
+                
         async Task Add()
         {
             var name = await App.Current.MainPage.DisplayPromptAsync("Name", "Character Name");
@@ -62,6 +66,11 @@ namespace DarinsDiceRoller.ViewModels
             Character.AddRange(characters);
 
             IsBusy = false;
+        }
+
+        public async void Reset()
+        {
+            await Refresh();
         }
     }
 }
