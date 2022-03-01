@@ -14,6 +14,7 @@ namespace DarinsDiceRoller.Services
         static SQLiteAsyncConnection db;
         static async Task Init()
         {
+            
             if (db != null)
                 return;
 
@@ -22,6 +23,7 @@ namespace DarinsDiceRoller.Services
             db = new SQLiteAsyncConnection(databasePath);
 
             await db.CreateTableAsync<D20Character>();
+            await db.CreateTableAsync<Settings>();
 
         }
 

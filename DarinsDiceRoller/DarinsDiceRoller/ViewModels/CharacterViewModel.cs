@@ -27,9 +27,8 @@ namespace DarinsDiceRoller.ViewModels
 
             RefreshCommand = new AsyncCommand(Refresh);
             AddCommand = new AsyncCommand(Add);
-            RemoveCommand = new AsyncCommand<D20Character>(Remove);           
-            
-            
+            RemoveCommand = new AsyncCommand<D20Character>(Remove);
+                        
         }
                 
         async Task Add()
@@ -71,6 +70,6 @@ namespace DarinsDiceRoller.ViewModels
         public async void Reset()
         {
             await Refresh();
-        }
+        }                        
     }
 }

@@ -26,7 +26,8 @@ namespace DarinsDiceRoller.Views
                 new HomeMenuItem {Id = MenuItemType.Dice, Title = "Dice"},
                 new HomeMenuItem {Id = MenuItemType.CharacterAdd, Title= "Character Add"},
                 new HomeMenuItem {Id = MenuItemType.Credits, Title = "Credits"},
-                new HomeMenuItem {Id = MenuItemType.About, Title = "About"}
+                new HomeMenuItem {Id = MenuItemType.About, Title = "About"},
+                new HomeMenuItem {Id = MenuItemType.Settings, Title = "Settings"}
             };
 
             ListViewMenu.ItemsSource = menuItems;

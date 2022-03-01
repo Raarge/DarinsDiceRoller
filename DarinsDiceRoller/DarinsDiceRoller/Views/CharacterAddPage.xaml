@@ -62,7 +62,8 @@
                                     FontSize="Large"
                                     Text="{Binding Name}"
                                     VerticalOptions="Center"
-                                    TextColor="black"/>
+                                    TextColor="black"
+                                    />
                                     <Label
                                     FontSize="Small"
                                     Text="{Binding CharacterId}"
